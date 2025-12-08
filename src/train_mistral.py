@@ -16,7 +16,7 @@ import sys
 
 os.environ["WANDB_DISABLED"] = "true"
 
-def train_mistral(model_name, data_path, output_dir):
+def train_mistral(model_name, data_path, output_dir, max_steps):
     print(f"Loading tokenizer: {model_name}...")
     tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
     tokenizer.pad_token = tokenizer.eos_token
@@ -106,7 +106,7 @@ def train_mistral(model_name, data_path, output_dir):
         gradient_accumulation_steps=4,
         learning_rate=2e-4,
         logging_steps=10,
-        max_steps=500, # Or num_train_epochs
+        max_steps=max_steps, # Or num_train_epochs
         optim="paged_adamw_32bit",
         save_steps=100,
         fp16=True,
@@ -134,6 +134,7 @@ if __name__ == "__main__":
     parser.add_argument("--model_name", type=str, default="mistralai/Mistral-7B-Instruct-v0.2") # Use v0.3 if available/supported
     parser.add_argument("--data_path", type=str, default="data/training/kaggle_legal_augmented.parquet")
     parser.add_argument("--output_dir", type=str, default="models/mistral_legal_finetuned")
+    parser.add_argument("--max_steps", type=int, default=500)
     args = parser.parse_args()
 
-    train_mistral(args.model_name, args.data_path, args.output_dir)
+    train_mistral(args.model_name, args.data_path, args.output_dir, args.max_steps)
