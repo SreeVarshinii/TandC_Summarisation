@@ -1,0 +1,10 @@
+pandas
+torch
+transformers
+spacy
+sentencepiece
+textstat
+rouge-score
+tqdm
+datasets
+pyarrow

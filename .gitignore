@@ -1,0 +1,16 @@
+# User requested
+data/jsons/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+*.ipynb_checkpoints
+
+# Large Data & Models (Suggesting these based on typical workflows)
+data/parquets/
+data/preprocessed/
+comparison_results.csv
