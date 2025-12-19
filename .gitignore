@@ -1,6 +1,6 @@
 # User requested
 data/jsons/
-
+models/
 # Python
 __pycache__/
 *.py[cod]

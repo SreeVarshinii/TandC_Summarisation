@@ -8,3 +8,10 @@ rouge-score
 tqdm
 datasets
 pyarrow
+fastparquet
+kagglehub
+peft
+bitsandbytes
+accelerate
+scipy
+streamlit
